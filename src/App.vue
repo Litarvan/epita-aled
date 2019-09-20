@@ -1,20 +1,26 @@
 <template>
-  <div id="app" :class="{ dark }">
+  <div id="app" :class="{ dark, sidemenu }">
     <div id="nav">
       <div id="left-nav">
-        <div id="logo">
+        <span id="sidemenu-display" @click="sidemenu = !sidemenu"><font-awesome-icon icon="bars" /></span>
+
+        <div id="logo" @click="sidemenu = false">
           <router-link to="/">ALED</router-link>
         </div>
 
-        <router-link class="nav-el" to="/a/aled">Aide</router-link>
-        <a class="nav-el" href="https://prepa-epita.helvetius.net/pegasus/" target="_blank">Pegasus</a>
-        <a class="nav-el" href="http://intracom.epita.fr/" target="_blank">Intracom</a>
+        <div id="big-links">
+          <router-link class="nav-el" to="/a/aled">Aide</router-link>
+          <a class="nav-el" href="https://prepa-epita.helvetius.net/pegasus/" target="_blank">Pegasus</a>
+          <a class="nav-el" href="http://intracom.epita.fr/" target="_blank">Intracom</a>
+        </div>
         <a class="nav-el" href="https://github.com/Litarvan/epita-aled" target="_blank">Github</a>
         <router-link class="nav-el" to="/about">À Propos</router-link>
       </div>
     </div>
 
-    <router-view/>
+    <div id="app-content">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -22,6 +28,14 @@
   import { mapState } from 'vuex';
 
   export default {
+    mounted() {
+      window.hidemenu = () => this.sidemenu = false; // Yeah this is dirty af
+    },
+    data() {
+      return {
+        sidemenu: false
+      }
+    },
     computed: {
       ...mapState(['dark'])
     }
@@ -43,23 +57,31 @@
   }
 
   #app {
+    display: inline-block;
+
     &.dark {
-      #nav {
+      &, #nav {
         background-color: #1e1e1e;
+      }
+
+      #nav {
         box-shadow: rgba(0, 0, 0, 0.6) 0 1px 3px -1px;
 
-        a {
+        a, #sidemenu-display {
           color: white;
         }
       }
     }
 
     &:not(.dark) {
-      #nav {
+      &, #nav {
         background-color: white;
+      }
+
+      #nav {
         box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
 
-        a {
+        a, #sidemenu-display {
           color: black;
         }
       }
@@ -67,10 +89,11 @@
   }
 
   #nav {
+    width: 100vw;
     height: $nav-height;
 
     z-index: 10;
-    position: relative;
+    position: fixed;
 
     display: flex;
     justify-content: space-between;
@@ -81,6 +104,13 @@
     #left-nav {
       display: flex;
       align-items: center;
+
+      #sidemenu-display {
+        display: none;
+
+        margin-left: 20px;
+        font-size: 20px;
+      }
 
       #logo {
         margin-left: 25px;
@@ -108,6 +138,26 @@
           text-decoration: underline;
           cursor: pointer;
         }
+      }
+    }
+  }
+
+  #app-content {
+    margin-top: $nav-height;
+  }
+
+  @media screen and (max-width: 800px) {
+    #nav #left-nav {
+      #big-links {
+        display: none;
+      }
+
+      #sidemenu-display {
+        display: inline-block;
+      }
+
+      #logo {
+        margin-left: 15px;
       }
     }
   }

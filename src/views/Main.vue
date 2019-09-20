@@ -4,6 +4,19 @@
           <input id="search" placeholder="Rechercher..." v-model="search" />
 
           <ul id="categories">
+              <li class="category epita-links">
+                  <span class="name">Liens utiles</span>
+
+                  <ul class="questions">
+                      <li class="question">
+                          <a class="link" href="https://prepa-epita.helvetius.net/pegasus/" target="_blank">Pegasus</a>
+                      </li>
+                      <li class="question">
+                          <a class="link" href="http://intracom.epita.fr/" target="_blank">Intracom</a>
+                      </li>
+                  </ul>
+              </li>
+
               <li class="category" v-for="cat of (search ? results : articles)" :key="cat.name">
                   <span class="name">{{ cat.name }}</span>
 
@@ -65,6 +78,7 @@
         methods: {
             select(id) {
                 this.$router.push('/a/' + id);
+                window.hidemenu();
             },
             setDark() {
                 this.$store.commit('setDark', !this.dark);
@@ -106,6 +120,7 @@
     #main {
         display: flex;
         height: calc(100vh - 75px);
+        min-height: 825px;
 
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
 
@@ -121,7 +136,6 @@
             }
 
             #content {
-                background-color: #1e1e1e;
                 color: #eee;
 
                 code {
@@ -135,6 +149,10 @@
                         color: #ccc;
                     }
                 }
+            }
+
+            a {
+                color: #eee;
             }
         }
 
@@ -150,7 +168,6 @@
             }
 
             #content {
-                background-color: white;
                 color: black;
 
                 code {
@@ -165,11 +182,16 @@
                     }
                 }
             }
+
+            a {
+                color: black;
+            }
         }
     }
 
     #side {
         width: 400px;
+        min-height: 825px;
 
         display: flex;
         flex-direction: column;
@@ -190,6 +212,10 @@
 
             &, .questions {
                 list-style: none;
+            }
+
+            #epita-links {
+                display: none;
             }
 
             .category {
@@ -271,6 +297,27 @@
 
                 margin-top: 5px;
             }
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        #side {
+            position: absolute;
+            transition: transform 300ms ease;
+
+            width: 100vw;
+        }
+
+        #app:not(.sidemenu) #side {
+            transform: translateX(-400px);
+        }
+
+        #questions #epita-links {
+            display: block;
+        }
+
+        #last-edit {
+            display: none;
         }
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="about">
+    <div id="about" :class="{ dark }">
         <h2>EPITA ALED v1.0.0 - <a href="https://github.com/Litarvan/epita-aled">Sources</a></h2>
 
         <p>
@@ -34,8 +34,14 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex';
+
     export default {
-        name: 'about'
+        name: 'about',
+
+        computed: {
+            ...mapState(['dark'])
+        },
     }
 </script>
 
@@ -52,6 +58,24 @@
         height: calc(100vh - 75px);
 
         text-align: center;
+
+        &.dark {
+            color: #eee;
+            background-color: #1e1e1e;
+
+            a {
+                color: #eee;
+            }
+        }
+
+        &:not(.dark) {
+            color: black;
+            background-color: white;
+
+            a {
+                color: black;
+            }
+        }
     }
 
     p {
@@ -95,7 +119,6 @@
                 font-size: 32px;
 
                 a {
-                    color: black;
                     margin-right: 35px;
                 }
             }
