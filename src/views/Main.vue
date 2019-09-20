@@ -120,7 +120,7 @@
     #main {
         display: flex;
         height: calc(100vh - 75px);
-        min-height: 900px;
+        min-height: 825px;
 
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
 
@@ -191,7 +191,7 @@
 
     #side {
         width: 400px;
-        min-height: 900px;
+        min-height: 825px;
 
         display: flex;
         flex-direction: column;
@@ -214,7 +214,7 @@
                 list-style: none;
             }
 
-            #epita-links {
+            .epita-links {
                 display: none;
             }
 
@@ -301,6 +301,10 @@
     }
 
     @media screen and (max-width: 700px) {
+        #main, #side {
+            min-height: 900px;
+        }
+
         #side {
             position: absolute;
             transition: transform 300ms ease-in-out;
@@ -312,7 +316,7 @@
             transform: translateX(-700px);
         }
 
-        #questions #epita-links {
+        #side #categories .epita-links {
             display: block;
         }
 
