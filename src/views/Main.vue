@@ -120,7 +120,7 @@
     #main {
         display: flex;
         height: calc(100vh - 75px);
-        min-height: 825px;
+        min-height: 900px;
 
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
 
@@ -191,7 +191,7 @@
 
     #side {
         width: 400px;
-        min-height: 825px;
+        min-height: 900px;
 
         display: flex;
         flex-direction: column;
@@ -300,16 +300,16 @@
         }
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 700px) {
         #side {
             position: absolute;
-            transition: transform 300ms ease;
+            transition: transform 300ms ease-in-out;
 
             width: 100vw;
         }
 
         #app:not(.sidemenu) #side {
-            transform: translateX(-400px);
+            transform: translateX(-700px);
         }
 
         #questions #epita-links {

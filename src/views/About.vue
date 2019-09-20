@@ -55,7 +55,7 @@
 
         flex-direction: column;
 
-        height: calc(100vh - 75px);
+        min-height: calc(100vh - 75px);
 
         text-align: center;
 
@@ -114,13 +114,9 @@
 
             #socials {
                 display: flex;
-                /*justify-content: space-evenly;*/
+                justify-content: space-evenly;
 
                 font-size: 32px;
-
-                a {
-                    margin-right: 35px;
-                }
             }
         }
     }
@@ -128,5 +124,31 @@
     #copyright {
         margin-top: 50px;
         font-style: italic;
+    }
+
+    @media screen and (max-width: 700px) {
+        p {
+            width: 90%;
+        }
+
+        #author {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 25px;
+
+            h2 {
+                margin-top: 5px;
+            }
+
+            #socials {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    @media screen and (max-height: 760px) {
+        #about {
+            justify-content: flex-start;
+        }
     }
 </style>

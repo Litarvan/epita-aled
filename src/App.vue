@@ -2,7 +2,7 @@
   <div id="app" :class="{ dark, sidemenu }">
     <div id="nav">
       <div id="left-nav">
-        <span id="sidemenu-display" @click="sidemenu = !sidemenu"><font-awesome-icon icon="bars" /></span>
+        <span id="sidemenu-display" v-if="$router.currentRoute.name === 'article'" @click="sidemenu = !sidemenu"><font-awesome-icon icon="bars" /></span>
 
         <div id="logo" @click="sidemenu = false">
           <router-link to="/">ALED</router-link>
@@ -110,6 +110,8 @@
 
         margin-left: 20px;
         font-size: 20px;
+
+        margin-right: -5px; // So i don't have to edit logo margin, to make it look nice on about page where there isn't the sidemenu-display icon
       }
 
       #logo {
@@ -146,7 +148,7 @@
     margin-top: $nav-height;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 700px) {
     #nav #left-nav {
       #big-links {
         display: none;
@@ -154,10 +156,6 @@
 
       #sidemenu-display {
         display: inline-block;
-      }
-
-      #logo {
-        margin-left: 15px;
       }
     }
   }
