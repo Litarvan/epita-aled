@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeueLight.woff") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeueLightItalic.woff") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeue-Roman.woff") format("woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeueItalic.woff") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeueBold.woff") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url("./assets/fonts/HelveticaNeueBoldItalic.woff") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
