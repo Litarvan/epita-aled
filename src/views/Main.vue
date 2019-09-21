@@ -118,9 +118,8 @@
 
 <style lang="scss">
     #main {
+        flex: 1;
         display: flex;
-        height: calc(100vh - 75px);
-        min-height: 825px;
 
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
 
@@ -189,16 +188,19 @@
         }
     }
 
-    #side {
-        width: 400px;
-        min-height: 825px;
+    #side, #content {
+        overflow-y: auto;
+        height: calc(100vh - 75px);
+    }
 
+    #side {
         display: flex;
         flex-direction: column;
 
+        overflow-x: hidden;
+
         #search {
-            height: 25px;
-            padding: 10px;
+            padding: 13px;
 
             border: none;
             outline: none;
@@ -208,7 +210,9 @@
 
         #categories {
             font-size: 13px;
+
             padding-left: 10px;
+            padding-right: 35px;
 
             &, .questions {
                 list-style: none;
@@ -244,7 +248,7 @@
     }
 
     #content {
-        width: 100%;
+        flex: 1;
 
         padding: 30px;
         padding-top: 0;
@@ -252,8 +256,6 @@
         box-sizing: border-box;
 
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
-
-        overflow-y: auto;
 
         h1 .id {
             font-style: italic;
@@ -309,10 +311,6 @@
     }
 
     @media screen and (max-width: 700px) {
-        #main, #side {
-            min-height: 925px;
-        }
-
         #side {
             position: absolute;
             transition: transform 300ms ease-in-out;
@@ -330,6 +328,10 @@
 
         #last-edit {
             display: none;
+        }
+
+        #content #sider {
+            right: 5px;
         }
     }
 </style>

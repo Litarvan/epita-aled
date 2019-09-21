@@ -18,9 +18,7 @@
       </div>
     </div>
 
-    <div id="app-content">
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
@@ -57,7 +55,10 @@
   }
 
   #app {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
 
     &.dark {
       &, #nav {
@@ -93,7 +94,6 @@
     height: $nav-height;
 
     z-index: 10;
-    position: fixed;
 
     display: flex;
     justify-content: space-between;
@@ -142,10 +142,6 @@
         }
       }
     }
-  }
-
-  #app-content {
-    margin-top: $nav-height;
   }
 
   @media screen and (max-width: 700px) {
