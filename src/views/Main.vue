@@ -270,6 +270,14 @@
             padding: 15px;
         }
 
+        p code {
+            padding: 5px;
+        }
+
+        img {
+            max-width: 75%;
+        }
+
         #sider {
             position: absolute;
             top: 75px;
