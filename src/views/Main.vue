@@ -310,7 +310,7 @@
 
     @media screen and (max-width: 700px) {
         #main, #side {
-            min-height: 900px;
+            min-height: 925px;
         }
 
         #side {
