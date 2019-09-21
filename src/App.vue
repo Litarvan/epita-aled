@@ -2,7 +2,7 @@
   <div id="app" :class="{ dark, sidemenu }">
     <div id="nav">
       <div id="left-nav">
-        <span id="sidemenu-display" v-if="$router.currentRoute.name === 'article'" @click="sidemenu = !sidemenu"><font-awesome-icon icon="bars" /></span>
+        <span id="sidemenu-display" v-if="$router.currentRoute.name === 'article'" @click="$store.commit('triggerMenu')"><font-awesome-icon icon="bars" /></span>
 
         <div id="logo" @click="sidemenu = false">
           <router-link to="/">ALED</router-link>
@@ -26,16 +26,8 @@
   import { mapState } from 'vuex';
 
   export default {
-    mounted() {
-      window.hidemenu = () => this.sidemenu = false; // Yeah this is dirty af
-    },
-    data() {
-      return {
-        sidemenu: false
-      }
-    },
     computed: {
-      ...mapState(['dark'])
+      ...mapState(['dark', 'sidemenu'])
     }
   }
 </script>
@@ -146,12 +138,22 @@
 
   @media screen and (max-width: 700px) {
     #nav #left-nav {
+      display: flex;
+      width: 100vw;
+
+      justify-content: space-around;
+
       #big-links {
         display: none;
       }
 
       #sidemenu-display {
         display: inline-block;
+        margin-right: -21px; // Makes it so much simple xd
+      }
+
+      #sidemenu-display, #logo, .nav-el {
+        margin-left: 0;
       }
     }
   }

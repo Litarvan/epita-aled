@@ -49,15 +49,16 @@
     #about {
         font-family: 'Helvetica-Neue', 'Roboto', 'Arial', sans-serif;
 
+        flex: 1;
+
         display: flex;
         justify-content: center;
         align-items: center;
-
         flex-direction: column;
 
-        min-height: calc(100vh - 75px);
-
         text-align: center;
+
+        overflow-y: auto;
 
         &.dark {
             color: #eee;
@@ -123,6 +124,8 @@
 
     #copyright {
         margin-top: 50px;
+        padding-bottom: 25px;
+
         font-style: italic;
     }
 

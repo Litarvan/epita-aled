@@ -78,7 +78,7 @@
         methods: {
             select(id) {
                 this.$router.push('/a/' + id);
-                window.hidemenu();
+                this.$store.commit('triggerMenu');
             },
             setDark() {
                 this.$store.commit('setDark', !this.dark);
