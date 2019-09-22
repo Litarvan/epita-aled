@@ -272,7 +272,7 @@
             padding: 15px;
         }
 
-        p code {
+        p code, li code {
             padding: 5px;
         }
 
