@@ -100,6 +100,9 @@
 
         img {
             border-radius: 50%;
+
+            width: 128px;
+            height: 128px;
         }
 
         #author-right {
