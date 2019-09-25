@@ -3,9 +3,11 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const saved = localStorage.getItem('dark');
+
 export default new Vuex.Store({
   state: {
-    dark: localStorage.getItem('dark') === 'true' || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches),
+    dark: saved === null ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) : saved,
     sidemenu: false
   },
   mutations: {
