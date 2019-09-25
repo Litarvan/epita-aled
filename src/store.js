@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    dark: localStorage.getItem('dark') === 'true' || false,
+    dark: localStorage.getItem('dark') === 'true' || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches),
     sidemenu: false
   },
   mutations: {
