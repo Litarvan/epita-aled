@@ -1,5 +1,7 @@
 # epita-aled
 
+## Les articles sont [ici](https://github.com/Litarvan/epita-aled-content)
+
 ## Project setup
 ```
 npm install
