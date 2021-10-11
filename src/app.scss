@@ -1,0 +1,25 @@
+@import './styles/components';
+@import './styles/fonts';
+@import './styles/reset';
+@import './styles/vars';
+
+:root {
+    /*
+     * Litarvan's pro tip:
+     * How to instantly make your text look beautiful
+     */
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: $font-helvetica;
+}
+
+body {
+    flex-direction: column;
+    height: 100vh;
+}
+
+* {
+    transition: background-color 200ms ease, color 150ms ease-in-out;
+}

@@ -1,0 +1,21 @@
+@import './mixins';
+
+button, a {
+  cursor: pointer;
+
+  &:not(.opaque) {
+    @include clickable(opacity, .7, .4);
+  }
+}
+
+.themed {
+  &:not(.dark) {
+    background-color: white;
+    color: black
+  }
+
+  &.dark {
+    background-color: #1e1e1e;
+    color: white
+  }
+}
